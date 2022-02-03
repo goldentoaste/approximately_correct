@@ -1,5 +1,7 @@
+import 'package:approximately_correct/ioFields.dart';
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart' as words;
+import 'keypad.dart';
 
 void main() {
     runApp(const MyApp());
@@ -11,9 +13,19 @@ class MyApp extends StatelessWidget {
     // This widget is the root of your application.
     @override
     Widget build(BuildContext context) {
-        return const MaterialApp(
+        return MaterialApp(
             title: "wow!",
-            home: RngWords(),
+            home: Scaffold(
+                appBar: AppBar(title: const Text("help help")),
+                body: Column(
+                    children: const [
+                        Expanded(
+                            child: IOFields(),
+                        ),
+                        Expanded(child: KeyPad()),
+                    ],
+                ),
+            ),
         );
     }
 }
@@ -49,7 +61,6 @@ class OtherPage extends StatelessWidget {
     }
 }
 
-
 class RngWords extends StatefulWidget {
     const RngWords({Key? key}) : super(key: key);
 
@@ -63,8 +74,7 @@ class _RngWordsState extends State<RngWords> {
     static const _font = TextStyle(fontSize: 25, color: Colors.blue);
 
     void _moveToSaved() {
-        Navigator.of(context)
-                .push(MaterialPageRoute(builder: OtherPage(_saved).build));
+        Navigator.of(context).push(MaterialPageRoute(builder: OtherPage(_saved).build));
     }
 
     @override
@@ -74,9 +84,7 @@ class _RngWordsState extends State<RngWords> {
                 title: const Text(
                     "help gelphelp helphelp",
                 ),
-                actions: [
-                    IconButton(onPressed: _moveToSaved, icon: const Icon(Icons.list))
-                ],
+                actions: [IconButton(onPressed: _moveToSaved, icon: const Icon(Icons.list))],
             ),
             body: _buildSuggestons(),
         );
