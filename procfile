@@ -1,1 +1,1 @@
-web: cd backend && gunicorn calculater.wsgi
+web: gunicorn calculater.wsgi
