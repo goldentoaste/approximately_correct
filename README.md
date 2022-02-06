@@ -5,7 +5,8 @@ equation is then parsed and evaluated server side.
 
 ## Parsing
 The equation parsing api is currently hosted at: `https://mathparsing.herokuapp.com/parse?eq=<InsertEquation>` Where `<InsertEquation>` can be any supported equations, like `?eq=(3%2b*(7-PI)^(cos(33)))/2`.  
-Note: to make the equation url friendly, symbols like '+' should replaced with `%2b`.   
+Note: to make the equation url friendly, symbols like '+' should replaced with `%2b`.  
+<br>
 Currently supported:  
 * Numerics:
     - floating point number: 3.22
