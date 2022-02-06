@@ -5,7 +5,7 @@ from django.http.request import HttpRequest
 import rest_framework.status as status
 from typing import Union
 from rest_framework.response import Response
-
+from calc.parser import Parser
 
 @api_view(["GET"])
 def handleEquations(request : Union[Request, HttpRequest]):
@@ -14,7 +14,7 @@ def handleEquations(request : Union[Request, HttpRequest]):
     if 'eq' not in params:
         return Response("equations not found in query params", 404)
     
-    return Response("not implemented!!!", status=status.HTTP_501_NOT_IMPLEMENTED)
+    return Response(Parser(params['eq']).parseEquation().eval(), status=status.HTTP_501_NOT_IMPLEMENTED)
 
 
 

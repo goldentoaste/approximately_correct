@@ -93,7 +93,7 @@ class NegExp(Expression):
         super().__init__(token, [val])
 
     def eval(self):
-        return - self.val.eval()
+        return - self.args[0].eval()
     
 class IdentExp(Expression):
 
@@ -182,7 +182,6 @@ class Parser:
             pass
         
         if token := self.NextTokenIs({'-'}):
-            token = self.GetNextToken()
             arg = self.parsePowExp()
             return NegExp(token, arg)
         
@@ -242,6 +241,8 @@ class Parser:
         return self.tokens[self.tokenIndex -1]
     
 if __name__ == "__main__":
-    eq = Parser("-1").parseEquation()
-    print(eq.eval())
-
+    try:
+        eq = Parser("-1").parseEquation()
+        print(eq.eval())
+    except Exception as e:
+        print(e)
