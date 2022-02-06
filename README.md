@@ -1,6 +1,6 @@
 # approximately_correct
-A simple calculator that is approximately. Where is the results are very slightly non-deterministic and also PI = e = 3.  
-This app works by using Flutter for front end Gui, and sends the equation user typed in to a Django api server hosted on Heroku. The
+A simple calculator that is approximately correct. Where is the results are very slightly non-deterministic and also PI = e = 3.  
+This app works by using Flutter for front end Gui, and sends the equation user typed to a Django api server hosted on Heroku. The
 equation is then parsed and evaluated server side.
 
 ## Parsing
