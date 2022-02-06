@@ -4,8 +4,8 @@ This app works by using Flutter for front end Gui, and sends the equation user t
 equation is then parsed and evaluated server side.
 
 ## Parsing
-The equation parsing api is currently hosted at: `https://mathparsing.herokuapp.com/parse?eq=<InsertEquation>` Where `<InsertEquation>` can be any supported equations, like `?eq=(3%2b*(7-PI)^(cos(33)))/2`.  
-Note: to make the equation url friendly, symbols like '+' should replaced with `%2b`.  
+The equation parsing api is currently hosted at: `https://mathparsing.herokuapp.com/parse?eq=<InsertEquation>` Where `<InsertEquation>` can be any supported equations, like `?eq=(3%2b*(7-PI)^(cos(33)))%2f2`.  
+Note: to make the equation url friendly, symbols like '+' should replaced with `%2b`, '/' replaced with `$2f`.  
 <br>
 Currently supported:  
 * Numerics:
