@@ -1,8 +1,8 @@
-from os import stat
+
 from rest_framework.decorators import api_view
 from rest_framework.request import Request
 from django.http.request import HttpRequest
-import rest_framework.status as status
+
 from typing import Union
 from rest_framework.response import Response
 from calc.parser import Parser
@@ -13,8 +13,10 @@ def handleEquations(request : Union[Request, HttpRequest]):
     params = request.query_params
     if 'eq' not in params:
         return Response("equations not found in query params", 404)
-    
-    return Response(Parser(params['eq']).parseEquation().eval(), status=status.HTTP_501_NOT_IMPLEMENTED)
+    try:
+        return Response(Parser(params['eq']).parseEquation().eval(), status=200)
+    except Exception as e:
+        return Response(str(e), status=200)
 
 
 
